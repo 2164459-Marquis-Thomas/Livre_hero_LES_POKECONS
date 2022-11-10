@@ -21,7 +21,7 @@ no_chapitre_destination varchar(255)
 
 create table joueur_sauvegarde(
 id int auto_increment primary key,
-nom varchar(30) not null,
+nom blob not null,
 chapitre_pogression varchar(255),
 point_de_vie int,
 combat int,
