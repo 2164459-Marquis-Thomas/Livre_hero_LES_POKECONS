@@ -25,7 +25,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         mycursor = mydb.cursor()
         texte = self.texteChapitre.text()
         nom = self.lineEditNom.text()
-        mycursor.execute("INSERT nom(), chapitre_progression(), point_de_vie(), combat(), endurance() INTO joueur_sauvegarde")
+        mycursor.execute("INSERT nom, chapitre_progression(), point_de_vie(), combat(), endurance() INTO joueur_sauvegarde")
         
     
     def selectChapitre1(self):

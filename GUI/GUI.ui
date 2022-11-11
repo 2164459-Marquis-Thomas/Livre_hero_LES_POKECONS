@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1093</width>
-    <height>835</height>
+    <width>1165</width>
+    <height>826</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,16 +27,6 @@
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2"/>
-   </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>400</y>
-      <width>1071</width>
-      <height>351</height>
-     </rect>
-    </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
@@ -307,7 +297,7 @@
      <string>Ok</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="lineEditNom">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -317,14 +307,24 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLineEdit" name="lineEditTexte">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>400</y>
+      <width>1131</width>
+      <height>391</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1093</width>
-     <height>21</height>
+     <width>1165</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
@@ -424,22 +424,6 @@
     <hint type="destinationlabel">
      <x>1031</x>
      <y>339</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>plainTextEdit</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>selectTexte()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>368</x>
-     <y>710</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>338</x>
-     <y>791</y>
     </hint>
    </hints>
   </connection>
