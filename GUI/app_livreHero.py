@@ -11,7 +11,8 @@ mydb = mysql.connector.connect(
   password="mysql",
   database="Livre_hero"
 )
-
+def convertTuple(tup):
+    pass
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, obj=None, **kwargs):
@@ -23,16 +24,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     # On défini la fonction qu'on avait déclaré pour le clique sur le bouton
     def insertionJoueur(self):
         mycursor = mydb.cursor()
-        texte = self.texteChapitre.text()
         nom = self.lineEditNom.text()
-        mycursor.execute("INSERT nom, chapitre_progression(), point_de_vie(), combat(), endurance() INTO joueur_sauvegarde")
+        sql ="INSERT INTO joueur_sauvegarde (nom, chapitre_pogression, point_de_vie, combat, endurance) VALUES (%s, %s, %s, %s, %s)"
+        val = (nom, 0, 100, 25, 25)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        print(mycursor.rowcount, "record inserted")
         
     
-    def selectChapitre1(self):
-        # ti select sur chapitre
-        # afficher dans gros texte box
-        pass
 
+    def selectChapitre1(self):
+        mycursor= mydb.cursor()
+        mycursor.execute("SELECT texte FROM chapitre WHERE no_chapitre = 0")
+        chapitre = 'Avertir le roi'
+        monResultat = mycursor.fetchall()
+        texte = ""
+        for x in monResultat:
+            for y in x:
+                texte = y
+        
+        self.labelTexte.setText(texte)
+        print(texte)
+        self.labelChapitre.setText(chapitre)
+
+    
     def selectPartieSauvegarde(self):
         # Get la partie du joueur
         # Après ça select le texte du chapitre

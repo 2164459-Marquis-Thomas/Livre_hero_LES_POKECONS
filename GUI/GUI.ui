@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1165</width>
-    <height>826</height>
+    <width>1061</width>
+    <height>884</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2"/>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButtonCommencez">
     <property name="geometry">
      <rect>
       <x>430</x>
@@ -51,7 +51,7 @@
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>360</y>
+      <y>330</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -63,8 +63,8 @@
    <widget class="QProgressBar" name="progressBar_2">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>360</y>
+      <x>400</x>
+      <y>330</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -76,8 +76,8 @@
    <widget class="QProgressBar" name="progressBar_3">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>360</y>
+      <x>700</x>
+      <y>330</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -86,11 +86,11 @@
      <number>50</number>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="labelPV">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>370</y>
+      <y>330</y>
       <width>101</width>
       <height>16</height>
      </rect>
@@ -104,11 +104,11 @@
      <string>Point de vie</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="labelCombat">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>370</y>
+      <x>320</x>
+      <y>340</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -122,11 +122,11 @@
      <string>Combat</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="labelEndurance">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>370</y>
+      <x>610</x>
+      <y>340</y>
       <width>91</width>
       <height>16</height>
      </rect>
@@ -140,7 +140,7 @@
      <string>Endurance</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="labelPartieSauvegarder">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -174,7 +174,7 @@
      <set>QAbstractItemView::SelectedClicked</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pushButtonCharger">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -193,7 +193,7 @@
      <string>Charger</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pushButtonQuitter">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -212,11 +212,11 @@
      <string>Sauvegarder et quitter</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="pushButtonEdit">
     <property name="geometry">
      <rect>
-      <x>950</x>
-      <y>360</y>
+      <x>910</x>
+      <y>330</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -225,11 +225,11 @@
      <string>editer</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="labelProchainChapitre">
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>60</y>
+      <y>30</y>
       <width>171</width>
       <height>21</height>
      </rect>
@@ -249,13 +249,13 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>90</y>
+      <y>60</y>
       <width>411</width>
       <height>192</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="labelNom">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -307,14 +307,56 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditTexte">
+   <widget class="QLabel" name="labelTexte">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>400</y>
-      <width>1131</width>
-      <height>391</height>
+      <y>410</y>
+      <width>1021</width>
+      <height>431</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelChapitre">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>370</y>
+      <width>441</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -323,7 +365,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1165</width>
+     <width>1061</width>
      <height>26</height>
     </rect>
    </property>
@@ -348,7 +390,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_2</sender>
+   <sender>pushButtonCommencez</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>selectChapitre1()</slot>
@@ -364,7 +406,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_3</sender>
+   <sender>pushButtonCharger</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>selectPartieSauvegarde()</slot>
@@ -380,7 +422,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_4</sender>
+   <sender>pushButtonQuitter</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>updateChapitreJoueur()</slot>
@@ -412,7 +454,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_5</sender>
+   <sender>pushButtonEdit</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>updateStats()</slot>
