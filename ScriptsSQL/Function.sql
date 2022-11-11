@@ -5,7 +5,7 @@
  * @return: un blob contenant les données cryptées
  */
 DELIMITER $$
-CREATE FUNCTION crypter(_donnee TEXT) RETURNS BLOB DETERMINISTIC
+CREATE FUNCTION crypter(_donnee VARCHAR(255)) RETURNS BLOB DETERMINISTIC
  BEGIN RETURN aes_encrypt(_donnee, 'GabinNouchette');
 END $$
 DELIMITER ;
@@ -17,7 +17,7 @@ DELIMITER ;
  * @return: une chaîne de caractère affichant le texte clair
  */
 DELIMITER $$
- CREATE FUNCTION decrypter(_donnee BLOB) RETURNS TEXT DETERMINISTIC 
+ CREATE FUNCTION decrypter(_donnee BLOB) RETURNS VARCHAR(255) DETERMINISTIC 
  BEGIN RETURN aes_decrypt(_donnee, 'GabinNouchette');
 END $$
 DELIMITER ;
