@@ -21,7 +21,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         # On connecter un événement sur le line edit
 
-    # On défini la fonction qu'on avait déclaré pour le clique sur le bouton
+    # insertion du joueur dans la BD
     def insertionJoueur(self):
         mycursor = mydb.cursor()
         nom = self.lineEditNom.text()
@@ -32,7 +32,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         print(mycursor.rowcount, "record inserted")
         
     
-
+    # Select du premier chapitre du livre
     def selectChapitre1(self):
         mycursor= mydb.cursor()
         mycursor.execute("SELECT texte FROM chapitre WHERE no_chapitre = 0")
