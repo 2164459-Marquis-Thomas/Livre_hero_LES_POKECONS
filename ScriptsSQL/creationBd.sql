@@ -8,22 +8,22 @@ nom varchar(255)
 );
 
 create table chapitre(
-id int auto_increment primary key,
-no_chapitre varchar(255) not null,
+no_chapitre int not null primary key,
 texte text
 );
 
 create table lien_chapitre(
 id int auto_increment primary key,
-no_chapitre_origine varchar(255) not null,
-no_chapitre_destination varchar(255)
+no_chapitre_origine int not null,
+no_chapitre_destination int
 );
 
 create table joueur_sauvegarde(
 id int auto_increment primary key,
 nom blob not null,
-chapitre_pogression varchar(255),
+chapitre_pogression int,
 point_de_vie int,
 combat int,
-endurance int
+endurance int,
+FOREIGN KEY (chapitre_pogression) REFERENCES chapitre(no_chapitre)
 );
