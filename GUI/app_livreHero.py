@@ -13,6 +13,7 @@ mydb = mysql.connector.connect(
 )
 def convertTuple(tup):
     pass
+
 #Sert a remplir la liste de sauvegarde avec les noms des joueurs
 def remplirListeSauvegarde(self):
     # remplir la liste des sauvegardes
@@ -37,9 +38,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
         # On va créer la fenêtre avec cette commande
         self.setupUi(self)
-        # On connecter un événement sur le line edit
+        
         remplirListeSauvegarde(self)
-
+        
 
     # insertion du joueur dans la BD
     #Encrypte le nom du joueur
@@ -91,8 +92,25 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # un select du texte pour le prochain chapitre
         pass
     def updateChapitre(self):
-        # update le chapitre la bien simple
+        mycursor = mydb.cursor()
+        sql = "SELECT CONVERT(no_chapitre_destination, CHAR) from lien_chapitre inner join chapitre on no_chapitre_origine = no_chapitre where no_chapitre_origine = %s"
+        self.lineEditNom.setText(self.listSauvegarde.selectedItems)
+        #chapitre_actuel = 
+        mycursor.execute(sql)
+        resultat = mycursor.fetchall()
+        for x in resultat:
+            for y in x:
+                self.listChapitre.addItem(y)
         pass
+
+    def supprimerSauvegarde(self):
+        item = self.listSauvegarde.currentRow()
+        if(item >= 0):
+            self.listSauvegarde.takeItem(item)
+            mycursor= mydb.cursor()
+            print(item)
+            #mycursor.execute("DELETE FROM joueur_sauvegarde WHERE nom = ")
+        
 
    
 
