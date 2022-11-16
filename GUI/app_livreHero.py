@@ -37,7 +37,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         
         remplirListeSauvegarde(self)
-        
 
     # insertion du joueur dans la BD
     #Encrypte le nom du joueur
@@ -45,13 +44,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         mycursor = mydb.cursor()
         nom = self.lineEditNom.text()
         if nom !="":
-            sql ="INSERT INTO joueur_sauvegarde (nom, chapitre_pogression, point_de_vie, combat, endurance) VALUES (crypter(""'"+nom+"'""), 0, 100, 0, 0)"
+            sql ="INSERT INTO joueur_sauvegarde (nom, chapitre_pogression) VALUES (crypter(""'"+nom+"'""), 0)"
             mycursor.execute(sql)
             mydb.commit()
             remplirListeSauvegarde(self)
+            id = mycursor.lastrowid
+            sql1 ="INSERT INTO fiche_personnage (player_id, endurance, habilite) VALUES (%s, %s, %s)"
+            data = (id, 0, 0 )
+            mycursor.execute(sql1, data)
         else:
             print("Veuillez entrer un nom")
-    
+        
     # Select du premier chapitre du livre
     def selectChapitre1(self):
         mycursor= mydb.cursor()
@@ -65,12 +68,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.labelTexte.setText(texte)
         self.labelChapitre.setText(chapitre)
 
-    
+    # Méthode qui selectionne les données sauvegarder pour chaque joueur. Donc le chapitre ou le joueur est rendu
+    # sa fiche personnage etc. CECI EST ASSOCIÉ AU BOUTON "CHARGER"
     def selectPartieSauvegarde(self):
+        self.plainTextEditArmes.clear()
+        self.plainTextEditKai.clear()
+        self.plainTextEditSac.clear()
+        self.spinBoxEndu.clear()
+        self.spinBoxHab.clear() 
+
         id = self.comboBoxSauvegarde.currentData()
         mycursor = mydb.cursor()
 
-        sqlJoueur = "SELECT habilite, endurance, discipline_kai, arme, sac_a_dos FROM fiche_personnage WHERE id = " + id
+        sqlJoueur = "SELECT habilite, endurance, discipline_kai, arme, sac_a_dos FROM fiche_personnage WHERE player_id = " + id
         mycursor.execute(sqlJoueur)
         joueur = mycursor.fetchall()
 
@@ -91,14 +101,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         for x in chapitre:
             self.labelChapitre.setText(x)
-        
-        #for x in joueur:
-            
 
-                
-                
-    ###########################################################################
-    #check pour la logique des ti check 
+        if(joueur[0]!="None"):
+            for x in joueur:
+                self.plainTextEditArmes.setPlainText(x[3])
+                self.plainTextEditKai.setPlainText(x[2])
+                self.plainTextEditSac.setPlainText(x[4])
+                self.spinBoxEndu.setValue(x[1])
+                self.spinBoxHab.setValue(x[0])
+
+    #Aussitôt que tu change de chapitre le update se lance dans la table de la sauvegarde du joueur 
+    # CECI EST ASSOCIÉ AU BOUTON "PROCHAIN CHAPITRE"
     def updateChapitreJoueur(self):
         mycursor = mydb.cursor()
         id = self.comboBoxSauvegarde.currentData()
@@ -115,14 +128,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.labelTexte.setText(texte)
         self.labelChapitre.setText(chapitreUpdate)
 
-
+    #Change le readonly de la fiche personnage pour que l'utilisateur soit capable d'éditer sa fiche
+    #CECI EST ASSOCIÉ AU BOUTON "EDITER FICHE PERSONNAGE"
     def updateStats(self):
-        self.plainTextEditArmes.isReadOnly(False)
-        self.plainTextEditKai.isReadOnly(False)
-        self.plainTextEditSac.isReadOnly(False)
-        self.spinBoxEndu.isReadOnly(False)
-        self.spinBoxHab.isReadOnly(False)
+        self.plainTextEditArmes.setReadOnly(False)
+        self.plainTextEditKai.setReadOnly(False)
+        self.plainTextEditSac.setReadOnly(False)
+        self.spinBoxEndu.setReadOnly(False)
+        self.spinBoxHab.setReadOnly(False)
 
+    #Enregistre les modifications qu'à apporter l'utilisateur à sa fiche
+    #CECI EST ASSOCIÉ AU BOUTON "ENREGISTRER"
     def enregistrerStats(self):
         mycursor = mydb.cursor()
         id = self.comboBoxSauvegarde.currentData()
@@ -131,17 +147,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         kai = self.plainTextEditKai.toPlainText()
         arme = self.plainTextEditArmes.toPlainText()
         sac = self.plainTextEditSac.toPlainText()
-
-        sql = "UPDATE fiche_personnage set habilite, endurance, discipline_kai, arme, sac_a_dos  = "+ habilite, endurance, kai, arme, sac +" where id = " + id
-        mycursor.execute(sql)
+        sql = "UPDATE fiche_personnage set habilite = %s, endurance = %s, discipline_kai = %s, arme = %s, sac_a_dos = %s WHERE player_id = %s"
+        param = (habilite, endurance, kai, arme, sac, id)
+        print(sql)
+        mycursor.execute(sql, param)
         mydb.commit()
+        self.plainTextEditArmes.setReadOnly(True)
+        self.plainTextEditKai.setReadOnly(True)
+        self.plainTextEditSac.setReadOnly(True)
+        self.spinBoxEndu.setReadOnly(True)
+        self.spinBoxHab.setReadOnly(True)
 
-        self.plainTextEditArmes.isReadOnly(True)
-        self.plainTextEditKai.isReadOnly(True)
-        self.plainTextEditSac.isReadOnly(True)
-        self.spinBoxEndu.isReadOnly(True)
-        self.spinBoxHab.isReadOnly(True)
-
+    #Charge les prochains chapitre selon le chapitre actuel de l'utilisateur
+    #CECI EST ASSOCIÉ AU BOUTON "CHOIX CHAPITRE"
     def updateChapitre(self):
         mycursor = mydb.cursor()
         id = self.comboBoxSauvegarde.currentData()
@@ -160,7 +178,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             for y in x:
                 self.comboBox_2.addItem(y)
         
-
+    #Supprime tout les données d'un uyilisateur dans la table de sauvegarde lorsqu'il est selectionner dans le combobox
+    #CECI EST ASSOCIÉ AU BOUTON "SUPPRIMER"
     def supprimerSauvegarde(self):
         index = self.comboBoxSauvegarde.currentIndex()
         id = self.comboBoxSauvegarde.currentData()
@@ -172,10 +191,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             mycursor.execute(sql)
             mydb.commit()
             
-        
-
-   
-
 app = QApplication(sys.argv)
 window = MainWindow()
 window.show()

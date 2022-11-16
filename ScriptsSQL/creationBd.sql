@@ -30,13 +30,12 @@ FOREIGN KEY (chapitre_pogression) REFERENCES chapitre(no_chapitre)
  * */
 
 CREATE TABLE fiche_personnage(
-id int PRIMARY KEY,
+id int PRIMARY key auto_increment,
 player_id int,
 habilite int,
 endurance int,
 discipline_kai text,
 arme text,
-sac_a_dos text,
-FOREIGN KEY (player_id) REFERENCES joueur_sauvegarde(id)
+sac_a_dos text
 );
 
