@@ -7,12 +7,11 @@ import mysql.connector
 
 mydb = mysql.connector.connect(
   host="localhost",
-  user="root",
-  password="mysql",
+  user="Gab",
+  password="jouet",
   database="Livre_hero"
 )
-def convertTuple(tup):
-    pass
+
 
 #Sert a remplir la liste de sauvegarde avec les noms des joueurs
 def remplirListeSauvegarde(self):
