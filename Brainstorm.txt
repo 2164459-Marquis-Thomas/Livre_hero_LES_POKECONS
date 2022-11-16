@@ -1,2 +1,0 @@
-Procedure Sauvegarde: Faire une trigger* a chaque changement de chapitre pour modifier ou le personnage est rendu.
-
