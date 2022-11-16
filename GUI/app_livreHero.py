@@ -110,11 +110,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
     def updateStats(self):
-        # update des stats dans la table joueur_sauvegarde
-        pass
+        self.plainTextEditArmes.isReadOnly(False)
+        self.plainTextEditKai.isReadOnly(False)
+        self.plainTextEditSac.isReadOnly(False)
+        self.spinBoxEndu.isReadOnly(False)
+        self.spinBoxHab.isReadOnly(False)
 
-    def selectTexte(self):
-        # juste un select pour afficher le texte du chapitre
+    def enregistrerStats(self):
+        mycursor = mydb.cursor()
+        habilite = self.spinBoxHab.value()
+        endurance = self.spinBoxHab.value()
+        kai = self.plainTextEditKai.toPlainText()
+
+
+        sql = "UPDATE fiche_personnage set habilite, endurance, discipline_kai, arme, sac_a_dos  = "++" where id = "
+
+
         pass
     def selectChapitre(self):
         # un select du texte pour le prochain chapitre
