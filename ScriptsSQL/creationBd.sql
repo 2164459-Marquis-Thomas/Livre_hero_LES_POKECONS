@@ -15,17 +15,28 @@ texte text
 create table lien_chapitre(
 id int auto_increment primary key,
 no_chapitre_origine int not null,
-no_chapitre_destination int,
-foreign key (no_chapitre_origine) references chapitre(no_chapitre)
+no_chapitre_destination int
 );
 
 create table joueur_sauvegarde(
 id int auto_increment primary key,
 nom blob not null,
 chapitre_pogression int,
-point_de_vie int,
-combat int,
-endurance int,
 FOREIGN KEY (chapitre_pogression) REFERENCES chapitre(no_chapitre)
+);
+
+/*
+ * Nouvelle table.
+ * */
+
+CREATE TABLE fiche_personnage(
+id int PRIMARY KEY,
+player_id int,
+habilite int,
+endurance int,
+discipline_kai text,
+arme text,
+sac_a_dos text,
+FOREIGN KEY (player_id) REFERENCES joueur_sauvegarde(id)
 );
 
