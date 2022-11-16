@@ -70,6 +70,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         id = self.comboBoxSauvegarde.currentData()
         mycursor = mydb.cursor()
 
+        sqlJoueur = "SELECT habilite, endurance, discipline_kai, arme, sac_a_dos FROM fiche_personnage WHERE id = " + id
+        mycursor.execute(sqlJoueur)
+        joueur = mycursor.fetchall()
 
         sqlChapitre = "SELECT CONVERT(chapitre_pogression, CHAR) FROM joueur_sauvegarde WHERE id = " + id
         mycursor.execute(sqlChapitre)
@@ -85,8 +88,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             for y in x:
                 texte = y
                 self.labelTexte.setText(texte)
+
         for x in chapitre:
             self.labelChapitre.setText(x)
+        
+        #for x in joueur:
+            
 
                 
                 
@@ -118,18 +125,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def enregistrerStats(self):
         mycursor = mydb.cursor()
+        id = self.comboBoxSauvegarde.currentData()
         habilite = self.spinBoxHab.value()
         endurance = self.spinBoxHab.value()
         kai = self.plainTextEditKai.toPlainText()
+        arme = self.plainTextEditArmes.toPlainText()
+        sac = self.plainTextEditSac.toPlainText()
 
+        sql = "UPDATE fiche_personnage set habilite, endurance, discipline_kai, arme, sac_a_dos  = "+ habilite, endurance, kai, arme, sac +" where id = " + id
+        mycursor.execute(sql)
+        mydb.commit()
 
-        sql = "UPDATE fiche_personnage set habilite, endurance, discipline_kai, arme, sac_a_dos  = "++" where id = "
-
-
-        pass
-    def selectChapitre(self):
-        # un select du texte pour le prochain chapitre
-        pass
+        self.plainTextEditArmes.isReadOnly(True)
+        self.plainTextEditKai.isReadOnly(True)
+        self.plainTextEditSac.isReadOnly(True)
+        self.spinBoxEndu.isReadOnly(True)
+        self.spinBoxHab.isReadOnly(True)
 
     def updateChapitre(self):
         mycursor = mydb.cursor()
