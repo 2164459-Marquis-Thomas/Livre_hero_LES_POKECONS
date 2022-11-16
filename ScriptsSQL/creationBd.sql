@@ -15,7 +15,8 @@ texte text
 create table lien_chapitre(
 id int auto_increment primary key,
 no_chapitre_origine int not null,
-no_chapitre_destination int
+no_chapitre_destination int,
+foreign key (no_chapitre_origine) references chapitre(no_chapitre)
 );
 
 create table joueur_sauvegarde(
@@ -27,3 +28,4 @@ combat int,
 endurance int,
 FOREIGN KEY (chapitre_pogression) REFERENCES chapitre(no_chapitre)
 );
+
