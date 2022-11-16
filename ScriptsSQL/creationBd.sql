@@ -29,6 +29,3 @@ endurance int,
 FOREIGN KEY (chapitre_pogression) REFERENCES chapitre(no_chapitre)
 );
 
-select no_chapitre_destination from lien_chapitre lc 
-inner join chapitre on no_chapitre_origine = no_chapitre 
-where no_chapitre_origine = 1;

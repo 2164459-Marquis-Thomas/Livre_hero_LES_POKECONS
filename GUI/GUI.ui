@@ -47,99 +47,6 @@
      <string>Commencez</string>
     </property>
    </widget>
-   <widget class="QProgressBar" name="progressBar">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>330</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>100</number>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="progressBar_2">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>330</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="progressBar_3">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>330</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelPV">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>330</y>
-      <width>101</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Point de vie</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelCombat">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>340</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Combat</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelEndurance">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>340</y>
-      <width>91</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Endurance</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="labelPartieSauvegarder">
     <property name="geometry">
      <rect>
@@ -158,47 +65,11 @@
      <string>Parties sauvegarder:</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listSauvegarde">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>521</width>
-      <height>192</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-      <underline>true</underline>
-      <kerning>false</kerning>
-     </font>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="editTriggers">
-     <set>QAbstractItemView::SelectedClicked</set>
-    </property>
-    <property name="showDropIndicator" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="selectionBehavior">
-     <enum>QAbstractItemView::SelectItems</enum>
-    </property>
-    <property name="selectionRectVisible">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButtonCharger">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>290</y>
+      <x>340</x>
+      <y>120</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -211,38 +82,6 @@
     </property>
     <property name="text">
      <string>Charger</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonQuitter">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>290</y>
-      <width>201</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Sauvegarder et quitter</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonEdit">
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>330</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>editer</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelProchainChapitre">
@@ -378,8 +217,8 @@
    <widget class="QPushButton" name="pushButtonDelete">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>290</y>
+      <x>350</x>
+      <y>90</y>
       <width>141</width>
       <height>28</height>
      </rect>
@@ -395,30 +234,13 @@
      <string>Supprimer</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listChapitre">
-    <property name="geometry">
-     <rect>
-      <x>650</x>
-      <y>70</y>
-      <width>256</width>
-      <height>192</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-      <underline>true</underline>
-     </font>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButtonChapitre">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>270</y>
-      <width>181</width>
-      <height>41</height>
+      <x>590</x>
+      <y>60</y>
+      <width>161</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -428,7 +250,95 @@
      </font>
     </property>
     <property name="text">
-     <string>Charger Chapitres</string>
+     <string>Choix Chapitres</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBoxSauvegarde">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>321</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>30</y>
+      <width>221</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>90</y>
+      <width>131</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Prochain Chapitre</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelFichePerso">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>271</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Fiche Personnage</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>240</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>290</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_4">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>340</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
     </property>
    </widget>
   </widget>
@@ -484,44 +394,12 @@
    <slot>selectPartieSauvegarde()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>55</x>
-     <y>333</y>
+     <x>385</x>
+     <y>173</y>
     </hint>
     <hint type="destinationlabel">
      <x>79</x>
      <y>350</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonQuitter</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>updateChapitreJoueur()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>276</x>
-     <y>324</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>308</x>
-     <y>352</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonEdit</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>updateStats()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1002</x>
-     <y>383</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1031</x>
-     <y>339</y>
     </hint>
    </hints>
   </connection>
@@ -532,8 +410,8 @@
    <slot>supprimerSauvegarde()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>437</x>
-     <y>327</y>
+     <x>467</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
      <x>490</x>
@@ -548,12 +426,28 @@
    <slot>updateChapitre()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>952</x>
-     <y>151</y>
+     <x>750</x>
+     <y>86</y>
     </hint>
     <hint type="destinationlabel">
      <x>988</x>
      <y>195</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateChapitreJoueur()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>661</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>651</x>
+     <y>178</y>
     </hint>
    </hints>
   </connection>
